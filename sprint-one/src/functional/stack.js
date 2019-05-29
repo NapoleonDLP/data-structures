@@ -30,12 +30,17 @@ E : n/a
     //  store value in variable
     var value = someInstance.storage[someInstance.count];
     //  delete key:value from storage
+    delete someInstance.storage[someInstance.count];
     //  decrement count
+
+    someInstance.count > 0 && someInstance.count--;
     //  return value at the current count in storage
+    return value;
   };
 
   someInstance.size = function() {
     //return count
+    return someInstance.count;
   };
 
   //  add storage as a property of someInstance before returning
