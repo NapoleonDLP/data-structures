@@ -46,10 +46,3 @@ E : n/a
 
   return someInstance;
 };
-
-/*
-I
-O
-C
-E
-*/
