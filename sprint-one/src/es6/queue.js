@@ -14,7 +14,12 @@ class Queue {
   }
 
   // add dequeue
-
+  dequeue() {
+    var value = this.storage[this.front];
+    delete this.storage[this.front];
+    this.back > this.front && this.front++;
+    return value;
+  }
 
   // add size
 }
