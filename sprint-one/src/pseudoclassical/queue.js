@@ -8,7 +8,10 @@ var Queue = function() {
 };
 
 // add enqueue
-//index = back
+Queue.prototype.enqueue = function(value) {
+  this.storage[this.back] = value;
+  this.back++;
+};
 
 //add dequeue
 //index = front
