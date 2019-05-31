@@ -13,6 +13,12 @@ class Stack {
   }
 
   // add pop
+  pop() {
+    var value = this.storage[this.count - 1];
+    delete this.storage[this.count - 1];
+    this.count > 0 && this.count--;
+    return value;
+  }
 
   // add size
 }
