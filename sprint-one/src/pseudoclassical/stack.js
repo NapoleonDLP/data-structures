@@ -9,7 +9,11 @@ var Stack = function() {
 };
 
 // add push to Stack.prototype
-// index = this.count
+Stack.prototype.push = function(value) {
+  // index = this.count
+  this.storage[this.count] = value;
+  this.count++;
+};
 
 // add pop to Stack.prototype
 // index = count -1
