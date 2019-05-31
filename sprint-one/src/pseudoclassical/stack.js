@@ -23,7 +23,8 @@ Stack.prototype.pop = function() {
   return value;
 };
 
-
 // add size to Stack.prototype
-
+Stack.prototype.size = function() {
+  return this.count;
+};
 
