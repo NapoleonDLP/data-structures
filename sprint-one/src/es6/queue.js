@@ -22,4 +22,7 @@ class Queue {
   }
 
   // add size
+  size() {
+    return this.back - this.front;
+  }
 }
