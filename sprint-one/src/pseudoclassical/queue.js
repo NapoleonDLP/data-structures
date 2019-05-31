@@ -14,6 +14,12 @@ Queue.prototype.enqueue = function(value) {
 };
 
 //add dequeue
+Queue.prototype.dequeue = function() {
+  var value = this.storage[this.front];
+  delete this.storage[this.front];
+  this.back > this.front && this.front++;
+  return value;
+};
 //index = front
 // back > front
 
