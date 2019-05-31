@@ -21,4 +21,7 @@ class Stack {
   }
 
   // add size
+  size() {
+    return this.count;
+  }
 }
