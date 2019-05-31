@@ -20,9 +20,10 @@ Queue.prototype.dequeue = function() {
   this.back > this.front && this.front++;
   return value;
 };
-//index = front
-// back > front
 
 //add size
+Queue.prototype.size = function() {
+  return this.back - this.front;
+};
 //back - front
 
