@@ -8,9 +8,13 @@ class Queue {
   }
 
   // add enqueue
-
+  enqueue(value) {
+    this.storage[this.back] = value;
+    this.back++;
+  }
 
   // add dequeue
+
 
   // add size
 }
