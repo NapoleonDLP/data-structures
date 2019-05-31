@@ -3,7 +3,7 @@ var LinkedList = function() {
   list.head = null;
   list.tail = null;
 
-  list.addToTail = function(value) {
+  list.addToTail = function(value) {  // O(1) Constant
     // instantiate new Node
     var newNode = Node(value);
     // if head & tail are null:
@@ -18,7 +18,7 @@ var LinkedList = function() {
     }
   };
 
-  list.removeHead = function() {
+  list.removeHead = function() {  // O(1) Constant
     // store head's value
     var value = this.head.value;
     // head will point to head.next
@@ -27,11 +27,11 @@ var LinkedList = function() {
     return value;
   };
 
-  list.contains = function(target) {
+  list.contains = function(target) {  // O(n) Linear
     //track current node
     var currentNode = this.head;
     // while next !== null
-    while (currentNode.next !== null) {
+    while (currentNode.value === target || currentNode.next !== null) {
       if (currentNode.value === target) {
         return true;
       }
