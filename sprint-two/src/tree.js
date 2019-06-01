@@ -9,7 +9,7 @@ var Tree = function(value) {
 
 var treeMethods = {};
 
-treeMethods.addChild = function(value) {
+treeMethods.addChild = function(value) { // O(1) Constant
   this.children.push(Tree(value));
 };
 
@@ -18,7 +18,7 @@ treeMethods.contains = function(target) {
   // declare found
   var found = false;
   // declare helper function (node)
-  var findTarget = function(node) {
+  var findTarget = function(node) { // O(n) Linear
 
     if (node.value === target) {
       found = true;
