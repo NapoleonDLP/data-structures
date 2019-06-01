@@ -13,6 +13,7 @@ setPrototype.add = function(item) {
 
 setPrototype.contains = function(item) {
   //check if item is found in set
+  return this._storage.hasOwnProperty(item);
 };
 
 setPrototype.remove = function(item) {
