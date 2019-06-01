@@ -18,6 +18,7 @@ setPrototype.contains = function(item) {
 
 setPrototype.remove = function(item) {
   //delete item from set
+  delete this._storage[item];
 };
 
 /*
