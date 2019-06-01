@@ -8,6 +8,7 @@ var setPrototype = {};
 
 setPrototype.add = function(item) {
   // add item to set
+  this._storage[item] = item;
 };
 
 setPrototype.contains = function(item) {
