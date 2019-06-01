@@ -19,6 +19,7 @@ treeMethods.contains = function(target) {
   var found = false;
   // declare helper function (node)
   var findTarget = function(node) {
+
     if (node.value === target) {
       found = true;
       return;
@@ -28,6 +29,8 @@ treeMethods.contains = function(target) {
       findTarget(child);
     });
   };
+
+  findTarget(node);
   return found;
 };
 
