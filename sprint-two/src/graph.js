@@ -19,7 +19,7 @@ Graph.prototype.contains = function(node) {
 Graph.prototype.removeNode = function(node) {
   // iterate over each edge
   this.storage[node].forEach(neighbor => {
-    this.storage[neighbor].filter(x => x !== node);
+    this.storage[neighbor] = this.storage[neighbor].filter(x => x !== node);
   });
   // go to that edge
   // find index of nodeToDelete
@@ -34,14 +34,22 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
+  this.storage[fromNode].push(parseInt(toNode));
+  this.storage[toNode].push(parseInt(fromNode));
 };
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
+  this.storage[fromNode] = this.storage[fromNode].filter( x => x !== toNode);
+  this.storage[toNode] = this.storage[toNode].filter( x => x !== fromNode);
 };
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
+  debugger;
+  Object.keys(this.storage).forEach(node => {
+    cb(node);
+  });
 };
 
 /*
