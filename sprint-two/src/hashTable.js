@@ -1,5 +1,3 @@
-
-
 var HashTable = function() {
   this._limit = 8;
   // creates the array/hastable
@@ -7,20 +5,15 @@ var HashTable = function() {
 };
 
 HashTable.prototype.insert = function(k, v) {
-  var bucket = [];
   var index = getIndexBelowMaxForKey(k, this._limit);
-  if (Array.isArray(this._storage[index])) {
-    bucket = this._storage[index];
-  }
+  var bucket = this._storage.get(index) || [];
   bucket.push([k, v]);
   this._storage.set(index, bucket);
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  //get and store value at index
   var bucket = this._storage.get(index) || [];
-  //iterate through bucket
   return bucket.reduce((value, touple) => {
     if (touple[0] === k) {
       value = touple[1];
@@ -31,15 +24,10 @@ HashTable.prototype.retrieve = function(k) {
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  //get and store value at index
-  //iterate through bucket
-  // checking for key
-  // filter through bucket
-  // set index to filtered bucket
-  this._storage.set(index, undefined);
+  var bucket = this._storage.get(index) || [];
+  bucket = bucket.filter( touple => touple[0] !== k);
+  this._storage.set(index, bucket);
 };
-
-
 
 /*
  * Complexity: What is the time complexity of the above functions?
