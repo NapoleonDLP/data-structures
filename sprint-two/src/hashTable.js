@@ -7,15 +7,15 @@ var HashTable = function() {
 };
 
 HashTable.prototype.insert = function(k, v) {
+  var bucket = [];
   var index = getIndexBelowMaxForKey(k, this._limit);
-  //account for two possible situations
-  //does the bucket exist
-  //  tore bucket to var
-  // push key value touple to bucket
-  // set bucket at index
+  if (Array.isArray(this._storage[index])) {
+    bucket = this._storage[index];
+  }
+  bucket.push([k, v]);
   //else
   // set an array of k v touple at index
-  this._storage.set(index, v);
+  this._storage.set(index, bucket);
 };
 
 HashTable.prototype.retrieve = function(k) {
