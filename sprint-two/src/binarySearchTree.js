@@ -1,9 +1,10 @@
 var BinarySearchTree = function(value) {
   //instantiate obj (prototypal)
-  //store value
-  //declare left node = null
-  //declare right node = null
-  //return object
+  var obj = Object.create(BinarySearchTree.prototype);
+  this.value = value;
+  this.left = null;
+  this.right = null;
+  return obj;
 };
 
 //add insert to methods
