@@ -13,18 +13,20 @@ HashTable.prototype.insert = function(k, v) {
     bucket = this._storage[index];
   }
   bucket.push([k, v]);
-  //else
-  // set an array of k v touple at index
   this._storage.set(index, bucket);
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   //get and store value at index
+  var bucket = this._storage.get(index) || [];
   //iterate through bucket
-  // checking for key
-  // return value
-  return this._storage.get(index);
+  return bucket.reduce((value, touple) => {
+    if (touple[0] === k) {
+      value = touple[1];
+    }
+    return value;
+  }, undefined);
 };
 
 HashTable.prototype.remove = function(k) {
