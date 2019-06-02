@@ -18,9 +18,48 @@ BinarySearchTree.prototype.insert = function(inputValue) {
 
 
 //add contains
+BinarySearchTree.prototype.contains = function(searchValue) {
+  if (this.value === searchValue) {
+    return true;
+  }
+
+  var direction = searchValue < this.value ? 'left' : 'right';
+
+  if (this[direction] === null) {
+    return false;
+  } else {
+    return this[direction].contains(searchValue);
+  }
+};
 
 //add depthfirstlog
+BinarySearchTree.prototype.depthFirstLog = function(cb) {
 
+  cb(this.value);
+
+  if (this.left) {
+    this.left.depthFirstLog(cb);
+  }
+
+  if (this.right) {
+    this.right.depthFirstLog(cb);
+  }
+
+};
+
+BinarySearchTree.prototype.ascendingLog = function(cb) {
+  if (this.left) {
+    this.left.depthFirstLog(cb);
+  } else {
+    cb(this.value);
+  }
+  //return
+
+  //apply cb to this value
+
+  //if there right
+  //cb right
+};
 /*
  * Complexity: What is the time complexity of the above functions?
  */
